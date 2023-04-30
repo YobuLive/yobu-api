@@ -1,0 +1,43 @@
+{
+  "name": "yobu-api",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run lint && npm run build:ts && tsc -p test/tsconfig.json && tap --ts \"test/**/*.test.ts\"",
+    "start": "npm run lint && npm run build:ts && fastify start -l info dist/app.js",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev": "npm run lint && npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js",
+    "lint": "prettier --check . && eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.7.1",
+    "@fastify/sensible": "^5.2.0",
+    "@fastify/swagger": "^8.3.1",
+    "fastify": "^4.17.0",
+    "fastify-cli": "^5.7.1",
+    "fastify-plugin": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "@types/tap": "^15.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "concurrently": "^8.0.1",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "fastify-tsconfig": "^1.0.1",
+    "prettier": "^2.8.8",
+    "tap": "^16.3.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}

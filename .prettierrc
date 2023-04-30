@@ -1,0 +1,12 @@
+{
+  "printWidth": 150,
+  "singleQuote": false,
+  "semi": true,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "all",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "pluginSearchDirs": ["."],
+  "endOfLine": "lf"
+}
